@@ -1,10 +1,9 @@
 import * as mongoose from 'mongoose';
-import { ValoresDto } from './valores.dto';
-import { ConfiguracoesDto } from './configuracoes.dto';
-import { HorariosDto } from './horarios.dto';
 
 export const EstablishmentSchema = new mongoose.Schema({
     nome: String,
+    email:String,
+    pswd: String,
     arrTipo: [String],
     endereço: String,
     nrDocumento: String,
@@ -20,9 +19,10 @@ export const EstablishmentSchema = new mongoose.Schema({
         expediente: [Number]
     },
     horarios: [{
-        horario: Number,
-        disponivel: Boolean,
+        dia: Date,
+        horario: String,
         cliente: String,
+        email: String,
         formaPgto: String,
     }]
 });
